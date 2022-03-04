@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>| Event Bubbling |</title>
+</head>
+
+<style>
+    #container{
+        display: flex;
+        flex-direction: row;
+    }
+    .mydiv {
+        width: 2em;
+        height: 5em;
+        background-color: #666;
+        margin: 2em;
+    }
+    .mydiv:hover{
+        transform: scale(1.125);
+    }
+
+</style>
+
+<body>
+<p id="p"></p>
+
+    <div id="container">
+        <div id="1" class="mydiv"></div>
+        <div id="2" class="mydiv"></div>
+        <div id="3" class="mydiv"></div>
+        <div id="4" class="mydiv"></div>
+        <div id="5" class="mydiv"></div>
+        <div id="6" class="mydiv"></div>
+        <div id="7" class="mydiv"></div>
+        <div id="8" class="mydiv"></div>
+        <div id="9" class="mydiv"></div>
+        <div id="10" class="mydiv"></div>
+    </div>
+
+<script>
+    const p = document.getElementById("p")
+    document.getElementById("container").onclick = (e) => {
+        if (e.target.id === "container") {
+        }
+            p.innerText = ('Im div #' + e.target.id)
+    }
+
+
+</script>
+</body>
+</html>

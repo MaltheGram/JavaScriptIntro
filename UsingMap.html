@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>| Map |</title>
+</head>
+<body>
+
+<ul id="ul"></ul>
+
+<form>
+    <input type="text" id="textField" placeholder="Name">
+    <button id="btn">Add name!</button>
+</form>
+
+<table>
+    <thead>
+      <tr>
+          <th>ID</th>
+          <th>Year</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Price</th>
+      </tr>
+    </thead>
+    <tr id="table">
+        <td id="id"></td>
+        <td id="year"></td>
+        <td id="brand"></td>
+        <td id="model"></td>
+        <td id="price"></td>
+    </tr>
+</table>
+<br>
+
+<form>
+    <input id="getPrice" name="price" type="text" placeholder="999">
+    <input id="submit" type="submit" value="Price lass than">
+
+</form>
+
+
+
+
+<script>
+    let cars = [
+        { id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000 },
+        { id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900 },
+        { id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000 },
+        { id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799 },
+        { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 },
+        { id: 6, year: 2022, make: 'Tesla', model: 'ZXY',price: 6969 },
+        { id: 7, year: 2018, make: 'Tesla', model: 's2',price: 1499 }
+    ];
+    const names = ["Lars", "Peter","Lisa", "Bo", "Jan", "Frederik", "Mogens", "Torben"]
+
+
+    const submit = document.getElementById("submit").onclick = (event) => {
+    const getPrice = document.getElementById("getPrice").value
+        event.preventDefault()
+        cars = cars.filter(car => car.price <= getPrice)
+
+        const tableId = cars.map(name => `<tr>${name.id}</tr>`).join(`<br>`)
+        const tableYear = cars.map(name => `<tr>${name.year}</tr>`).join(`<br>`)
+        const tableMake = cars.map(name => `<tr>${name.make}</tr>`).join(`<br>`)
+        const tableModel = cars.map(name => `<tr>${name.model}</tr>`).join(`<br>`)
+        const tablePrice = cars.map(name => `<tr>${name.price}</tr>`).join(`<br>`)
+
+        const table = document.querySelectorAll("td")
+        table[0].innerHTML = tableId
+        table[1].innerHTML = tableYear
+        table[2].innerHTML = tableMake
+        table[3].innerHTML = tableModel
+        table[4].innerHTML = tablePrice
+    }
+
+
+    function makeTable(){
+        const tableId = cars.map(name => `<tr>${name.id}</tr>`).join(`<br>`)
+        const tableYear = cars.map(name => `<tr>${name.year}</tr>`).join(`<br>`)
+        const tableMake = cars.map(name => `<tr>${name.make}</tr>`).join(`<br>`)
+        const tableModel = cars.map(name => `<tr>${name.model}</tr>`).join(`<br>`)
+        const tablePrice = cars.map(name => `<tr>${name.price}</tr>`).join(`<br>`)
+
+        const table = document.querySelectorAll("td")
+        table[0].innerHTML = tableId
+        table[1].innerHTML = tableYear
+        table[2].innerHTML = tableMake
+        table[3].innerHTML = tableModel
+        table[4].innerHTML = tablePrice
+
+    }
+
+    document.getElementById("btn").onclick = addName
+
+    function makeListItems(){
+        //const filtered = names.filter(name => name.length > 4)
+        const listItems =  names.map(name => `<li>${name}</li>`).join("")
+        const x = document.getElementById("ul")
+        x.innerHTML = listItems
+    }
+
+    function addName(e) {
+        e.preventDefault()
+        const add = document.getElementById("textField").value
+        if (add === "") {
+            return alert("Please enter a name")
+        }
+        names.push(add)
+        makeListItems()
+    }
+
+    //makeListItems()
+    makeTable()
+    filterByPrice()
+
+
+
+</script>
+
+</body>
+</html>
+<script>
+    import Index from "./index.html";
+    export default {
+        components: {Index}
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 1</title>
+</head>
+<style>
+    div {
+        width: 5em;
+        height: 5em;
+        background: aqua;
+        border: 2px solid red;
+        margin: 5px;
+    }
+    button {
+        height: auto;
+        width: fit-content;
+    }
+</style>
+<body>
+
+<button id="btn">Change Colors!</button>
+<div id="1"></div>
+<div id="2"></div>
+<div id="3"></div>
+
+<script>
+    function setColorDiv() {
+        const divs = document.querySelectorAll("div")
+        divs.forEach( lcd => lcd.style.backgroundColor = `hsl(${Math.round(360 * Math.random())}, 90%, 70%)`)
+    }
+
+    const divs = document.querySelectorAll("div")
+    divs.forEach(div => div.style.backgroundColor = "aqua")
+
+    const btn = document.getElementById("btn")
+    btn.addEventListener("click",setColorDiv)
+
+
+
+</script>
+
+</body>
+</html>
