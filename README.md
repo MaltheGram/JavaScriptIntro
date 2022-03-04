@@ -1,3 +1,3 @@
 ### JavaScriptIntro
 
-Intial readme
+Initial readme
