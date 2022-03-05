@@ -36,6 +36,7 @@
 <form>
     <input id="getPrice" name="price" type="text" placeholder="999">
     <input id="submit" type="submit" value="Price lass than">
+    <input id="reset" type="submit" value="Reset table">
 
 </form>
 
@@ -55,6 +56,23 @@
     const names = ["Lars", "Peter","Lisa", "Bo", "Jan", "Frederik", "Mogens", "Torben"]
 
 
+
+    const reset = document.getElementById("reset").onclick = () => {
+        const tableId = cars.map(name => `<tr>${name.id}</tr>`).join(`<br>`)
+        const tableYear = cars.map(name => `<tr>${name.year}</tr>`).join(`<br>`)
+        const tableMake = cars.map(name => `<tr>${name.make}</tr>`).join(`<br>`)
+        const tableModel = cars.map(name => `<tr>${name.model}</tr>`).join(`<br>`)
+        const tablePrice = cars.map(name => `<tr>${name.price}</tr>`).join(`<br>`)
+        const table = document.querySelectorAll("td")
+
+        table[0].innerHTML = tableId
+        table[1].innerHTML = tableYear
+        table[2].innerHTML = tableMake
+        table[3].innerHTML = tableModel
+        table[4].innerHTML = tablePrice
+
+    }
+
     const submit = document.getElementById("submit").onclick = (event) => {
     const getPrice = document.getElementById("getPrice").value
         event.preventDefault()
@@ -73,6 +91,29 @@
         table[3].innerHTML = tableModel
         table[4].innerHTML = tablePrice
     }
+
+
+
+    function myDisplayer(some) {
+        document.getElementById("demo").innerHTML = some;
+    }
+
+    let myPromise = new Promise(function(myResolve, myReject) {
+        let x = 0;
+
+// some code (try to change x to 5)
+
+        if (x == 0) {
+            myResolve("OK");
+        } else {
+            myReject("Error");
+        }
+    });
+
+    myPromise.then(
+        function(value) {myDisplayer(value);},
+        function(error) {myDisplayer(error);}
+    );
 
 
     function makeTable(){

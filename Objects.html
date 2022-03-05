@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>| Objects |</title>
+</head>
+<body>
+
+<p id="myP"></p>
+
+<script>
+
+const person = {
+    fistName: 'Malthe',
+    lastName: 'Gram',
+    age: 24,
+    height: 189
+}
+const myP = document.getElementById("myP")
+
+for (const property in person){
+    console.log(property,person[property])
+}
+console.log("Now deleting height")
+delete person.height
+
+for (const property in person){
+    console.log(property,person[property])
+}
+
+console.log("Adding weight")
+person.weight = 83
+for (const property in person){
+    console.log(property,person[property])
+}
+
+myP.innerText = person.fistName + " " + person.lastName
+
+
+
+
+
+
+</script>
+</body>
+</html>
